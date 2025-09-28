@@ -1,0 +1,29 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Ataza zerrenda{% endblock %}
+
+{% block content %}
+<h1>Atazak</h1>
+
+<button onclick="window.location.href='/tasks/create/';">Ataza gehitu</button>
+
+{% for task in tasks %}
+<article class="card">
+   <p>
+   <a href='/tasks/{{ task.id }}/edit/'>✏️</a>
+   <a href='/tasks/{{ task.id }}/delete/'>🗑️</a>  
+   <strong>{{ task.title }}</strong>
+<i>({{ task.project.name }})</i>
+</p>
+   {% if task.done %}
+        <span style="color: blue;"><del>{{ task.description }}</del></span>
+        <button onclick="window.location.href='/tasks/{{ task.id }}/undone/';">Markatu egin gabe</button>
+    {% else %}
+         <span style="color: red;">{{ task.description }}</span>
+        <button onclick="window.location.href='/tasks/{{ task.id }}/done/';">Markatu eginda</button>
+    {% endif %}
+</article>
+<hr/>
+{% endfor %}
+<button onclick="window.location.href='/tasks/create/';">Ataza gehitu</button>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout/base.html" %}
+
+
+{% block title %}Proiektua ezabatu{% endblock %}
+
+
+{% block content %}
+
+<h1>Proiektua ezabatu</h1>
+<p>Ziur zaude "{{ object }}" ezabatu nahi duzula?</p>
+<p><strong>Kontuz:</strong> Honek beregain dituen atazak ere ezabatuko ditu eta.</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Ados</button>
+</form>
+<a href="{% url 'projects' %}">Utzi</a>
+
+{% endblock %}

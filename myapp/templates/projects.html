@@ -1,0 +1,25 @@
+<!-- myapp/templates/projects.html -->
+{% extends "layout/base.html" %}
+
+
+{% block title %}Proiektu zerrenda{% endblock %}
+
+
+{% block content %}
+<h1>Proiektuak</h1>
+
+<button onclick="window.location.href='/projects/create/';">Proiektua gehitu</button>
+<hr/>
+
+{% for project in projects %}
+<article class="card">
+   <a href="/projects/{{ project.id }}/tasks/">📃</a>
+   <a href="/projects/{{ project.id }}/edit/">✏️</a>
+   <a href="/projects/{{ project.id }}/delete/">🗑️</a>
+
+   <strong>{{ project.name }}</strong>
+</article>
+<hr/>
+{% endfor %}
+<button onclick="window.location.href='/projects/create/';">Proiektua gehitu</button>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout/base.html" %}
+
+
+{% block title %}Ataza ezabatu{% endblock %}
+
+
+{% block content %}
+<h1>Ataza ezabatu</h1>
+<p>Ziur al zaude "{{ object }}" ezabatu nahi duzula?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Bai</button>
+</form>
+<a href="{% url 'tasks_todo' %}">Utzi</a>
+{% endblock %}

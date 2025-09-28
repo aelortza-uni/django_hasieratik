@@ -1,0 +1,32 @@
+<!-- myapp/templates/layouts/base.html -->
+<!-- HTML egitura osoa sortzen dugu -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{% block title %}Proiektuen kudeaketa{% endblock %}</title>
+</head>
+
+
+<body>
+    {% block navbar %}
+        {% include "layout/navbar.html" %}
+    {% endblock %}
+
+
+   <main>
+       <!-- Hemen sartuko da beste orrien eduki espezifikoa -->
+       {% block content %}
+       {% endblock %}
+   </main>
+
+    {% block footer %}
+        {% include "layout/footer.html" %}
+    {% endblock %}
+</body>
+
+
+</html>

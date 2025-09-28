@@ -1,0 +1,18 @@
+{% extends "layout/base.html" %}
+
+
+{% block title %}{% if object %}Editatu proiektua{% else %}Proiektu berria{% endif %}{% endblock %}
+
+{% block content %}
+
+<h1>{{ view.object|default:"Proiektua sortu/aldatu" }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Gorde</button>
+</form>
+<a href="{% url 'projects' %}">Utzi</a>
+
+
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends "layout/base.html" %}
+
+
+{% block title %}{% if object %}Editatu ataza{% else %}Ataza berria{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if object %}Editatu "{{ object.title }}"{% else %}Ataza berria sortu{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Gorde</button>
+</form>
+{% if object %}<a href="/projects/{{ object.project.id }}/tasks/">Utzi</a>{% else %}<a href="{% url 'tasks_todo' %}">Utzi</a>{% endif %}
+{% endblock %}
